@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end 
   resources :artworks, only: [:show, :update, :create, :destroy]
   resources :artworkshares, only: [:create, :destroy]
+  resources :comments, only: [:index, :create, :destroy]
 end
