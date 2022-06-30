@@ -1,17 +1,6 @@
 class LikesController < ApplicationController
      
-     def index
-    # @comment = Comment.all 
-    # render json: @comment
-    #   debugger 
-    # if params[:user_id]
-    #   @comments = Comment.where(user_id: params[:user_id])
-    # elsif params[:artwork_id]
-    #   @comments = Comment.where(artwork_id: params[:artwork_id])
-    # else 
-    #   @comments = Comment.all 
-    # end 
-    # render json: @comments
+  def index
     @likes = Like.where(like_params)
     render json: @likes
   end

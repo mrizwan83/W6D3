@@ -1,17 +1,7 @@
 class ArtworksController < ApplicationController
   def index
-    # @artwork = Artwork.all 
-    # render json: @artwork
-    # if params[:user_id]
-    #   render json: Artwork.users(params[:user_id])
-    # end 
-
       @user = User.find(params[:user_id])
       render json: [@user.artworks, @user.shared_artworks].flatten
-
-    # render json: {@user.artworks => @artwork, @user.shared_artworks => @shared_artworks }
-
-
   end
 
   def show 
@@ -42,6 +32,7 @@ class ArtworksController < ApplicationController
     @artwork.destroy 
     redirect_to artworks_url
   end
+  
   private
   def artwork_params
     params.require(:artwork).permit(:title, :image_url, :artist_id)
