@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user.destroy 
     redirect_to users_url
   end
-
+  private
   def user_params
     params.require(:user).permit(:username)
   end
